@@ -1,79 +1,80 @@
-🧱 Brick Breaker Game (Java)
+# 🧱 Brick Breaker Game (Java)
 
-A classic Brick Breaker / Breakout-style arcade game built in Java.
+A classic **Brick Breaker / Breakout-style arcade game** built in **Java**.  
 The objective is simple — control the paddle, bounce the ball, and destroy all bricks to win!
 
-🎮 Features
+🌐 **Play / Download via Website**  
+👉 https://brickbreaker-frontend1-i5nzmaocw.vercel.app
 
-✅ Smooth ball & paddle movement
+---
 
-✅ Collision detection with bricks, paddle & walls
+## 🎮 Features
 
-✅ Score tracking & high score saving (scores.txt)
+- ✅ Smooth ball & paddle movement  
+- ✅ Collision detection with bricks, paddle & walls  
+- ✅ Score tracking & high score saving (`scores.txt`)  
+- ✅ Game restart on completion or game-over  
+- ✅ Simple & lightweight Java project (works offline)  
+- ✅ Packaged `.jar` executable included  
 
-✅ Game restart on completion or game-over
+---
 
-✅ Simple & lightweight Java project (works offline)
+## 🕹️ Controls
 
-✅ Packaged .jar executable included
+| Action | Key |
+|------|-----|
+| Move Paddle Left | ⬅️ Left Arrow |
+| Move Paddle Right | ➡️ Right Arrow |
+| Start / Restart Game | ⏎ Enter |
 
-🖥️ Gameplay
-Action	Control
-Move Paddle Left	⬅️ Left Arrow
-Move Paddle Right	➡️ Right Arrow
-Start / Restart	Enter
+🎯 **Goal:** Break all bricks without letting the ball fall!
 
-🎯 Goal: Break all bricks without letting the ball fall!
+---
 
-📂 Project Structure
+## 📂 Project Structure
+
 📦 Brick Breaker Game
- ┣ 📁 src               → Java source files
- ┣ 📄 BrickBreaker.jar → Executable game file
- ┣ 📄 manifest.txt     → Manifest file for JAR
- ┣ 📄 scores.txt       → Stores high scores
- ┗ 📄 README.md        → Documentation
+┣ 📁 src → Java source files
+┣ 📄 BrickBreaker.jar → Executable game file
+┣ 📄 manifest.txt → Manifest file for JAR
+┣ 📄 scores.txt → Stores high scores
+┗ 📄 README.md → Documentation
 
-🚀 How to Run the Game
-Option 1 — Run JAR
 
-Make sure Java is installed.
+---
 
+## 🚀 How to Run the Game
+
+### ▶️ Option 1 — Run JAR (Recommended)
+
+Make sure Java is installed:
+
+```bash
 java -jar BrickBreaker.jar
-
-Option 2 — Compile & Run from Source
+🛠 Option 2 — Compile & Run from Source
 javac src/*.java
 java Main
-
 🏆 High Scores
-
-The game saves your top score in scores.txt and updates it automatically.
+The game automatically saves your top score in scores.txt and updates it whenever you beat your previous record.
 
 📸 Screenshots
+(Add gameplay screenshots here later)
 
-(Add your game screenshots here later)
-
-![Gameplay Screenshot](images/screenshot.png)
-
-👨‍💻 Tech Stack
+🧰 Tech Stack
 Technology	Purpose
 Java	Core game logic
 Swing / AWT	Graphics rendering & input handling
-📌 Future Improvements (Optional Ideas)
-
+🔮 Future Improvements (Ideas)
 Power-ups (speed boost, multi-ball, bigger paddle)
 
-Audio effects
+Sound & background music
 
 Custom levels
 
 Difficulty modes
 
 ✨ Author
-
 Anuj Sharma
 📍 Bennett University
-Passionate about Java, ML, CV, and Game Development
+💡 Passionate about Java, Machine Learning, Computer Vision, and Game Development
 
-⭐ Support
-
-If you like this project, consider giving the repo a ⭐ on GitHub!
