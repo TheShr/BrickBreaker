@@ -6,7 +6,7 @@ The objective is simple — control the paddle, bounce the ball, and destroy all
 
  **Play / Download via Website**  
 
- brickbreakerfrontend.vercel.app
+ [brickbreakerfrontend.vercel.app](https://brickbreakerfrontend.vercel.app/)
 
 ---
 
@@ -90,6 +90,7 @@ Swing / AWT	Graphics rendering & input handling
 Anuj Sharma
 📍 Bennett University
 💡 Passionate about Java, Machine Learning, Computer Vision, and Game Development
+
 
 
 
