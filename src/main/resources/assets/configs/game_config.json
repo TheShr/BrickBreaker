@@ -1,0 +1,40 @@
+{
+  "window": {
+    "title": "Brick Breaker Deluxe 2.0 🎮",
+    "width": 700,
+    "height": 600,
+    "resizable": false
+  },
+  "paddle": {
+    "startX": 310,
+    "startY": 550,
+    "width": 100,
+    "height": 8,
+    "speed": 30,
+    "minBound": 10,
+    "maxBound": 600
+  },
+  "ball": {
+    "startX": 120,
+    "startY": 350,
+    "speedX": -1,
+    "speedY": -2,
+    "size": 20,
+    "deathY": 570
+  },
+  "bricks": {
+    "rows": 3,
+    "cols": 7,
+    "totalCount": 21,
+    "offsetX": 80,
+    "offsetY": 100,
+    "widthBound": 540,
+    "heightBound": 150
+  },
+  "gameplay": {
+    "initialDelay": 8,
+    "scorePerBrick": 5,
+    "levelThreshold": 15,
+    "scoresFile": "scores.txt"
+  }
+}

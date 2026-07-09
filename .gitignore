@@ -1,0 +1,19 @@
+# Maven build outputs
+target/
+
+# Local tools bundle
+tools/
+
+# Compiled Java class files
+*.class
+
+# Log files
+*.log
+
+# IDE specific files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
