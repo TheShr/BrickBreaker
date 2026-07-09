@@ -1,23 +1,31 @@
-# 🎮 Brick Breaker Deluxe 2.0
+# Brick Breaker Deluxe 2.0
 
 [![Java Version](https://img.shields.io/badge/Java-17%20%7C%2021-orange.svg?style=flat-square&logo=openjdk)](https://openjdk.org/)
 [![Build Status](https://img.shields.io/badge/Build-Maven-blue.svg?style=flat-square&logo=apachemaven)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
-[![Architecture](https://img.shields.io/badge/Architecture-ECS%20%7C%20Clean-brightgreen.svg?style=flat-square)](#architecture)
+[![Architecture](https://img.shields.io/badge/Architecture-ECS%20%7C%20Clean-brightgreen.svg?style=flat-square)](#system-architecture)
 
-A high-performance, commercial-grade 2D arcade game built from scratch in Java. This project represents the evolution of a legacy, monolithic Swing desktop application into a modern, decoupled, and highly optimized game engine incorporating Clean Architecture, design patterns, and systems optimization techniques.
+An extensible, high-performance 2D arcade game engine built in Java. This project represents the evolution of a monolithic Swing desktop application into a modern, decoupled, and highly optimized game engine incorporating Clean Architecture, design patterns, and systems optimization techniques.
 
 ---
 
-## 🎨 Game Screenshot
+## Live Web Demonstration
+
+An interactive, browser-compatible version of the game frontend is available online: 
+
+[brickbreakerfrontend.vercel.app](https://brickbreakerfrontend.vercel.app/)
+
+---
+
+## Gameplay Screenshot
 
 ![Gameplay Screenshot](screenshot.png)
 
 ---
 
-## 🏗 System Architecture
+## System Architecture
 
-The codebase implements a **Modular Layered Architecture** with a custom **Entity-Component-System (ECS)** pattern and a registry container for dependency injection. 
+The core engine is structured using a Modular Layered Architecture with a custom Entity-Component-System (ECS) pattern, coordinated by a Service Locator for clean dependency injection and lifecycle decoupling.
 
 ```mermaid
 graph TD
@@ -40,31 +48,31 @@ graph TD
 ```
 
 ### Key Architectural Pillars:
-1. **Custom Entity-Component-System (ECS)**: Decouples entity data (Components) from operational logic (Systems). An Entity is represented by a simple unique numerical ID, avoiding deep OOP inheritance trees and the "fragile base class" problem.
-2. **Fixed-Timestep Game Loop Thread**: Separate from AWT's Event Dispatch Thread (EDT). Decouples physics calculation ticks (locked at 60Hz) from rendering frame pacing to ensure uniform gameplay physics across machines.
-3. **Service Locator**: Manages dynamic registry injection of core services (Event Bus, ECS Registry, Input Manager).
-4. **Publish-Subscribe Event Bus**: An observer pattern implementation that eliminates direct class coupling. Subsystems (such as Scoring and Level managers) register for and publish concrete record structures (e.g., `BrickBrokenEvent`).
-5. **Active Rendering Canvas**: Uses double-buffered frame buffers and `BufferStrategy` directly on a focusable AWT Canvas, eliminating Swing component paint queue delays.
-6. **Command Pattern Input Router**: Decouples keys directly from coordinate alterations. The `InputManager` maps keystrokes to executable commands, facilitating configurable mappings.
+1. **Custom Entity-Component-System (ECS)**: Decouples component data from operational systems logic. Entities are represented as unique numerical IDs, avoiding deep OOP inheritance trees and resolving the fragile base class problem.
+2. **Fixed-Timestep Game Loop Thread**: Operates independently of AWT's Event Dispatch Thread (EDT). Decouples physics updates (locked at 60Hz) from rendering frame pacing to ensure uniform gameplay physics across different CPU configurations.
+3. **Service Locator Container**: Manages dynamic registry injection of core services including the Event Bus, ECS Registry, and Input Manager.
+4. **Publish-Subscribe Event Bus**: An observer pattern implementation that eliminates class coupling. Subsystems register for and publish concrete record structures (e.g., `BrickBrokenEvent`).
+5. **Active Rendering Canvas**: Employs double-buffered frame buffers and `BufferStrategy` directly on a focusable AWT Canvas, bypassing Swing repaint queue delays.
+6. **Command Pattern Input Router**: Decouples keys from coordinate alteration. The `InputManager` maps keystrokes to executable commands, enabling dynamic input configuration.
 
 ---
 
-## 🛠 Features
+## Operational Features
 
-* **Config-driven Game Properties**: Dimensions, speeds, limits, and file paths are externalized inside [game_config.json](src/main/resources/assets/configs/game_config.json).
-* **Polymorphic Brick Types**: Easily add explosive, laser, teleport, or gravity bricks by simply adding components to entities.
-* **Structured Diagnostic Telemetry**: Configured using Log4j2 and a diagnostics debug HUD overlay tracking real-time rendering statistics.
-* **Zero-Allocation Memory Safety**: Employs reusable object pools to recycle bounding rectangles, vectors, and particle instances to prevent JVM Garbage Collection stutters during play.
+* **Config-driven Game Properties**: Operational dimensions, speeds, boundaries, and scores file paths are externalized inside [game_config.json](src/main/resources/assets/configs/game_config.json).
+* **Polymorphic Brick Types**: Additional brick variants (e.g., explosive, laser, gravity) are added by registering components to entities, without modifying existing physics logic.
+* **Structured Diagnostics Telemetry**: Integrates Log4j2 console logging and a debug HUD overlay tracing real-time rendering statistics.
+* **Zero-Allocation Memory Safety**: Employs reusable object pools to recycle bounding rectangles, vectors, and particle instances, preventing JVM Garbage Collection micro-stutters during play.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 * Java Development Kit (JDK) 17 or higher
-* Maven (or run via the local tools bundle)
+* Maven (or execution via the local tools bundle)
 
-### Compilation & Build
+### Compilation and Build
 To clean compilation artifacts and package the game into a self-contained, executable JAR:
 ```bash
 # Using Maven globally
@@ -86,7 +94,7 @@ java -jar target/brickbreaker-2.0.0.jar
 
 ---
 
-## ⚙ Configurations
+## Configuration Specifications
 
 Properties inside the configuration files can be adjusted dynamically:
 
@@ -97,9 +105,9 @@ Properties inside the configuration files can be adjusted dynamically:
 
 ---
 
-## 🧪 Testing
+## Verification and Testing
 
-The engine includes testing setups for logic validations:
+The engine includes validation setups for game logic and physics simulation checks:
 ```bash
 # Run unit and integration tests
 .\tools\apache-maven-3.9.6\bin\mvn test
@@ -107,5 +115,5 @@ The engine includes testing setups for logic validations:
 
 ---
 
-## 📄 License
+## License
 This project is open-source and available under the [MIT License](LICENSE).
